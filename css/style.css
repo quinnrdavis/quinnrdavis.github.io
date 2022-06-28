@@ -112,6 +112,10 @@ footer {
     background-color: darkslategray;
 }
 
+.navbar a.active:hover {
+    color: white;
+}
+
 /*-----------------------------------------------
     END OF NAVBAR STYLING
 -----------------------------------------------*/
