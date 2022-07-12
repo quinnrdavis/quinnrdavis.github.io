@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Portfolio Website</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/portfolio.js" defer></script>
 </head>
 
 <body>
@@ -13,9 +14,10 @@
     <!-- NAV -->
     <div class="navbar">
         <a href="#home" class="active">Home</a>
+        <a href="#slideshow">Slideshow</a>
         <a href="#about">About</a>
         <a href="#github">GitHub</a>
-        <a href="#contact">Contact</a>
+        <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
     </div>
     <!-- END NAV -->
 
@@ -36,12 +38,12 @@
 
         <!-- VIDEO TEXT -->
         <div class="video-text">
-            <h1 class="white-text">Quinn Davis's Portfolio</h1>
+            <h1 class="white-text">Quinn Davis' Portfolio</h1>
             <p class="center">
                 <q>In some ways, programming is like painting.
                     <br>You start with a blank canvas and certain basic raw materials.
-                    <br>You use a combination of science, art, and craft
-                    <br>to determine what to do with them.
+                    You use a combination of science, art, and craft
+                    to determine what to do with them.
                 </q>
                 <br> - Andrew Hunt
                 <br>
@@ -53,6 +55,61 @@
 
     </div>
     <!-- END HOME -->
+
+    <!-- SLIDESHOW -->
+    <div id="slideshow">
+        <div id="slideshow_background">
+            <div id="slideshow_container">
+                <!--Slide 1/6-->
+                <div class="mySlides fade">
+                    <img class="slideshow_images" src="./img/me.jpg" alt="Picture of myself">
+                    <div class="text">I'm available to assist you on your project!</div>
+                </div>
+                <!--Slide 2/6-->
+                <div class="mySlides fade">
+                    <img class="slideshow_images" src="./img/HTML_CSS_and_JavaScript.jpeg"
+                        alt="HTML, CSS, and JS logos">
+                    <div class="text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,
+                    </div>
+                </div>
+                <!--Slide 3/6-->
+                <div class="mySlides fade">
+                    <img class="slideshow_images" src="./img/Python.png" alt="Python logo">
+                    <div class="text">the popular programming language Python,</div>
+                </div>
+                <!--Slide 4/6-->
+                <div class="mySlides fade">
+                    <img class="slideshow_images" src="./img/C_Sharp_and_Dot_NET.png" alt="C# logo">
+                    <div class="text">C#, .NET Framework, ASP.NET, MVC,</div>
+                </div>
+                <!--Slide 5/6-->
+                <div class="mySlides fade">
+                    <img class="slideshow_images" src="./img/SQL_and_Database.jpg" alt="SQL logo">
+                    <div class="text">back end development, databases and SQL.</div>
+                </div>
+                <!--Slide 6/6-->
+                <div class="mySlides fade">
+                    <img class="slideshow_images" src="./img/contact.jpg" alt="Business card">
+                    <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div>
+                </div>
+                <!--Previous and next buttons-->
+                <a class="previous" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+
+            <!--Slideshow dots-->
+            <div style="text-align: center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+            </div>
+        </div>
+    </div>
+    <!-- END SLIDESHOW -->
 
     <!-- ABOUT -->
     <div class="row" id="about">
@@ -105,25 +162,23 @@
     <!-- END GITHUB -->
 
     <!-- CONTACT -->
-    <div class="row" id="contact">
-
-        <!-- LEFT COLUMN -->
-        <div class="column1 column_tall">
-            <img src="./img/contact.jpg" alt="Contact Image">
-        </div>
-
-        <!-- RIGHT COLUMN -->
-        <div class="column2 column_tall">
-            <h1 class="sub_header">Contact</h1>
+    <div id="contact">
+        <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+        <div class="form-popup" id="myForm">
             <!-- CONTACT FORM -->
-            <form action="" method="POST">
-                <label>Name:</label>
-                <input type="text" placeholder="Please enter your name here">
-                <label>Email:</label>
-                <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                <label>Message:</label>
-                <input type="text" id="Message" name="Message" placeholder="Please enter your message here">
-                <input type="submit" value="SUBMIT">
+            <form action="https://formspree.io/f/mbjweadr" method="POST" class="form-container">
+                <h1>Contact</h1>
+                <label for="name">Name:</label>
+                <input type="text" placeholder="Please enter your name here" name="name" required>
+                <label for="email">Email:</label>
+                <input type="text" id="Email" name="Email" placeholder="Please enter your email here" name="email"
+                    required>
+                <label for="message">Message:</label>
+                <input type="text" id="Message" name="Message" placeholder="Please enter your message here"
+                    name="message">
+
+                <button type="submit" class="btn">SUBMIT</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
             </form>
         </div>
 
